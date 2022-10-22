@@ -9,3 +9,7 @@
     O_WDONLY | O_CREAT
 3. 写文件，不存在创建，存在，从末尾追加
     O_WDONOY | O_CREAT | O_APPEND
+- O_DIRECT 无缓冲的IO
+- O_NONBLOCK 无阻塞的IO
+- O_SYNC 同步写入文件
+- O_ASYNC 文件IO操作可行时，产生信号通知进程
