@@ -1,3 +1,15 @@
+# RUST标准库内存模块
+模块代码位置为 
+- core/src/alloc*.*
+- core/src/ptr*.*
+- core/src/mem*.*
+- core/src/intrinsic.rs
+- alloc/src/alloc.rs
+
+因为core库可以构建完全能在裸机运行的程序，所以rust需要对内存完全的控制。这需要讲内存管理系统与rust的语言
+类型相关联，即一段内存需要对应rust的一个基础类型
+
+
 ### MannulDrop<T>
 这是T的一个包装器，主要原理是通过MannulDrop::new(value:T)获取T的所有权。但是MannualDrop本身没有实现Drop trait。这样T就不会被自动
 drop。这是一个小技巧。
