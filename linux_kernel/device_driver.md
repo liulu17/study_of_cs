@@ -231,3 +231,33 @@ if (fd < 0) {
 
 close(fd);
 ```
+
+## read 和 write
+用户空间的read和write到达驱动
+```
+if (read(fd, buffer, size) < 0) {
+    /* handle error */
+}
+
+if (write(fd, buffer, size) < 0) {
+    /* handle error */
+}
+```
+read和write在设备和用户空间传输数据。read将数据从设备发送到用户空间，write将用户数据传输到设备上。
+
+read和write的返回值情况如下：
+- \>0 表示传送的字节数。这个数字可能小于请求传送的字节数，这就是部分传输。
+- =0 读操作表示文件尾，写操作表示没有写入数据且没发生错误
+- <0 读取出错
+
+read操作执行流程如下：
+- 将设备buffer中的字节尽可能满足需求的传送给用户buffer
+- 更新offset
+- 返回读取的字节数
+  
+下面图片展示了read可能得情况
+
+<img src="./imgs/read.png">
+
+1. 左图对应的设备缓存中还有足够的字节可读
+2. 右图对应的设备缓存没足够的字节可读
