@@ -46,6 +46,9 @@ SO_LINGER可以控制套接字关闭时的行为，具体是发送RST分节
 
 ### 服务器进程关闭的影响
 如果服务器进程关闭，会发送FIN给客户端，客户端返回ACK，此时，TCP处于半关闭状态。此时客户端可以继续写数据，但是服务器会发送RST分节。此时若继续读，会报错，出错信息为"Connection reset by peer",具体如下图:
-<img src="./imgs/read_rst.png">
+<img src="./imgs/read_write_rst.png">
 
-RST前面的read会返回eof，RST后面的RST返回出错,出错信息为："Connection reset by peer"
+RST前面的read会返回eof，RST后面的RST返回出错,出错信息为："Connection reset by peer"。若收到RST后继续写，会收到SIGPIPE信号。
+
+### 服务器主机崩溃
+服务器崩溃后，客户端一般不会感知到，当客户端写数据，数据传入内核，内核TCP发送数据分节。此时服务器崩溃了，所以要么这个分节发送不到主机，要么中间路由键判定不可达，反正等不到ACK的到来。要么返回ETIMEOUT，要么返回EHOSTUNREACH或者ENETUNREACH。
