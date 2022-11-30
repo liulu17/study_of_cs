@@ -2,7 +2,7 @@
 ### 创建裸指针
 1. as 可以将引用转化为指针
 - ***as需要先创建一个引用***
-```
+```rust
 let x = 10;
 let y = &x as * const i32;
 let y:*const i32 = &x; // 可以直接使用*const T接受 &T类型的值
@@ -19,7 +19,7 @@ unsafe {
 
 2. 使用ptr::addr_of!宏创建原始指针
 - ***ptr::addr_of!不用创建引用***
-```
+```rust
 #[derive(Debug, Default, Copy, Clone)]
 #[repr(C,packed)]
 struct S {
@@ -34,7 +34,7 @@ println!("{}",unsafe{*y});
 ```
 
 3. 使用libc的c函数创建
-```
+```rust
 extern crate libc;
 use std::mem;
 
@@ -49,7 +49,7 @@ unsafe {
 ```
 
 4. 直接用usize转换
-```
+```rust
 let x:usize= 0xf00000000;
 let y = x as *const i32;
 
