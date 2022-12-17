@@ -8,4 +8,11 @@ hosts文件相当于一个缓存，当在该文件中找到了域名的ip地址�
 当hosts文件没找到时，会根据/etc/resolv.conf 文件中配置的dns服务器，去该服务器查找（发送查找请求）。dns服务器有可能在本地也有可能不在本地。本地dns服务器可以使用dnsmasq程序
 
 ## /etc/nsswitch.conf
-这个文件定义了解析的顺序，即是先找hosts文件还是直接去dns服务器查询
+名称解析配置，包括域名到ip、用户名到uid等。我们只关注域名到ip
+```shell
+cat /etc/nsswitch.conf | grep hosts
+#     hosts: files dns
+#     hosts: files dns  # from user file
+hosts:      files dns myhostname
+```
+这个文件定义了解析的顺序，即是先找hosts文件还是直接去dns服务器查询·上面的结果显示，解析顺序是先查找/etc/hosts文件再使用dns服务器
