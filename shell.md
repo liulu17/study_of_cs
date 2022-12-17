@@ -6,3 +6,5 @@
 ### BASH_SOURCE $0
 BASH_SOURCE能获取文件名，不管从sh还是从source调用的脚本
 $0不能获取从source调用的脚本名
+
+数组
