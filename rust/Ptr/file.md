@@ -54,3 +54,9 @@ let x:usize= 0xf00000000;
 let y = x as *const i32;
 
 ```
+5. ptr::null() 创建裸指针
+   frow_raw_parts() 使用*const () 和一个元数据创建裸指针 *const T
+   invalid(addr:usize) addr转化为*const T。这里有个技巧。invalid<T>,如果T没有显示指定，则为().所以invalid(0) 差不多等价于 0 as *const ().
+   frow_raw_parts(invalid(0),()) --> *const T
+
+
