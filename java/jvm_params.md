@@ -1,0 +1,4 @@
+-XX:PretenureSizeThreshold=1048576
+大于该值的对象在老年代分配，这样做的目的就是避免在Eden区及两个Survivor区 之间来回复制，产生大量的内存复制操作。
+
+-XX:PretenureSizeThreshold参数只对Serial和ParNew两款新生代收集器有效，HotSpot 的其他新生代收集器，如Parallel Scavenge并不支持这个参数
