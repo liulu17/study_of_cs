@@ -6,4 +6,9 @@
 3. 将用户添加进sudo组
    usermod -aG wheel test (centos)
    usermod -aG sudo test    (ubuntu)
-   
+
+4. 查看用户信息
+   id
+
+5. 查看sudo
+   visudo
