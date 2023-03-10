@@ -46,7 +46,17 @@ docker run
     --add-host 域名：ip #添加hosts
 ```
 
-# 创建固定ip
+eg:
+docker run -it --cpuset-cpus 0,1 -m 8G --net docker-br0  --ip 172.172.0.14 -v ~/bigdata/:/home/hadoop/bigdata/ --name client --restart always hadoop-base-02 /bin/bash /etc/start.sh
+
+# 网络服务
 ```
+创建网络
 docker network create --subnet=172.172.0.0/24 docker-br0
+
+查看网络
+docker network ls
+
+查看网络明细
+docker network inspect net_id
 ```
