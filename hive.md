@@ -9,3 +9,9 @@ nohup hive --service hiveserver2 &
 kill -9 $(jps -lm | grep -i 'metastore.HiveMetaStore' | awk '{print $1}')
 kill -9 $(jps -lm | grep -i 'HiveServer2' | awk '{print $1}')
 ```
+
+## 配置文件
+```
+hive-site.xml
+hive-env.xml
+```
