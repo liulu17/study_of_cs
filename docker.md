@@ -60,3 +60,11 @@ docker network ls
 查看网络明细
 docker network inspect net_id
 ```
+
+
+
+# docker-compose
+```
+docker-compose up 创建容易
+docker-compose start 开启容器
+```
