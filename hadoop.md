@@ -23,3 +23,14 @@ $HADOOP_HOME/sbin/start-yarn.sh
 
 ## 关闭yarn
 $HADOOP_HOME/sbin/stop-yarn.sh
+
+
+
+## 集群情况
+```
+zookeeper : localhost:2181 ui:
+kafka : localhost:9092,9093,9094
+hive localhost:10000 ui:localohost:10002
+hadoop : localhost:9870 
+yarn : localhost:8088
+```

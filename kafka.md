@@ -1,23 +1,22 @@
 
 # 开始生产
-kafka-console-producer.sh --topic frist --bootstrap-server localhost:9092
-
+kafka-console-producer.sh --topic frist --bootstrap-server localhost:9092,localhost:9093,localhost:9094
 # 开始消费
-kafka-console-consumer.sh --topic frist --bootstrap-server localhost:9092 --from-beginning
+kafka-console-consumer.sh --topic frist --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --from-beginning
 
 --property print.key=true 显示键值
 
 
 
 # 创建topic
-kafka-topics.sh  --create --topic test-kafka --bootstrap-server  localhost:9092,localhost:9093,localhost:9094 --partitions 3 relication-factor 2
+kafka-topics.sh  --create --topic test-flink --bootstrap-server  localhost:9092,localhost:9093,localhost:9094 --partitions 3 relication-factor 2
 
 
 # 查看topic
-kafka-topics.sh --list --bootstrap-server localhost:9092
+kafka-topics.sh --list --bootstrap-server localhost:9092,localhost:9093,localhost:9094
 
 # 查看topic的分区情况
-kafka-topics.sh --describe  --bootstrap-server localhost:9092
+kafka-topics.sh --describe  --bootstrap-server localhost:9092,localhost:9093,localhost:9094
 
 
 # 消费组

@@ -49,6 +49,11 @@ docker run
 eg:
 docker run -it --cpuset-cpus 0,1 -m 8G --net docker-br0  --ip 172.172.0.14 -v ~/bigdata/:/home/hadoop/bigdata/ --name client --restart always hadoop-base-02 /bin/bash /etc/start.sh
 
+
+# 停止
+```
+docker stop 5921cb1f1a87
+```
 # 网络服务
 ```
 创建网络
@@ -65,6 +70,7 @@ docker network inspect net_id
 
 # docker-compose
 ```
-docker-compose up 创建容易
-docker-compose start 开启容器
+docker-compose up 创建cluster
+docker-compose start 开启cluser
+docker-compose down 关闭cluster
 ```
