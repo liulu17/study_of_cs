@@ -1,5 +1,5 @@
 # 创建 test1环境
-conda create -n test1 python=3.9
+co
 
 # 激活test1环境
 conda activate test1
